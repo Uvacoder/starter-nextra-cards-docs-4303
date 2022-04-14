@@ -13,16 +13,20 @@ Additional details on transcoding can be found in
 
 ## Orchestrator
 
-Orchestrators are video miners that are responsible for receiving video from
-broadcasters and returning transcoded results. They can also be transcoders that
-transcode video themselves on their own or they can outsource transcoding to
-separate transcoders. They coordinate work and sometimes perform work on the
+Orchestrators are video miners that are responsible for receiving video from broadcasters and returning transcoded results. They can also be transcoders that transcode video themselves on their own or they can outsource transcoding to separate transcoders. They coordinate work and sometimes perform work on the
 network.
 
 ## Transcoder
 
-Transcoders are video miners that are responsible for transcoding video. They
-perform work on the network.
+Transcoders are video miners that are responsible for transcoding video. They perform work on the network.
+
+## Real-time segment ratio 
+
+"Real-Time Segs Ratio" captures the number of segments transcoded in real-time. 
+
+## Stream duration ratio
+
+"Real-Time Duration Ratio" captures the total time taken to transcode all segments relative to the total duration of all source segments.
 
 ## Stake
 
@@ -32,26 +36,13 @@ provide economic security to broadcasters.
 
 ## Session
 
-Transcoding is performed in individual sessions that are created on
-orchestrators and transcoders. The definition of a session differs slightly
-between an orchestrator and a transcoder:
+Transcoding is performed in individual sessions that are created on orchestrators and transcoders. The definition of a session differs slightly between an orchestrator and a transcoder:
 
-- A session on an orchestrator refers to job consisting of numerous segments
-  given to an orchestrator by a broadcaster which is identified by a session ID
-  that the broadcaster obtains by authenticating with the orchestrator. This
-  session usually tracks streams closely, but does not necessarily map 1:1 to
-  streams - there are cases where there may be multiple sessions used for the
-  same stream
-- A session on a transcoder refers to an individual transcoding task (for a
-  segment) that is sent by the orchestrator
+- A session on an orchestrator refers to job consisting of numerous segments given to an orchestrator by a broadcaster which is identified by a session ID that the broadcaster obtains by authenticating with the orchestrator. This session usually tracks streams closely, but does not necessarily map 1:1 to streams - there are cases where there may be multiple sessions used for the same stream
+- A session on a transcoder refers to an individual transcoding task (for a segment) that is sent by the orchestrator
 
 ## Capacity
 
-Capacity refers to the total transcoding that an orchestrator or transcoder can
-provide in an acceptable time frame (i.e. real-time). At the moment,
-orchestrators and transcoders can set their capacities based on the maximum
-number of sessions that they can support. For an orchestrator, this maximum
-session count refers to the maximum number of simultaneous jobs they can receive
-from broadcasters. For a transcoder, this maximum session count refers to the
-maximum number of simultaneous transcoding tasks they can receive from
-broadcasters.
+Capacity refers to the total transcoding that an orchestrator or transcoder can provide in an acceptable time frame (i.e. real-time). At the moment, orchestrators and transcoders can set their capacities based on the maximum number of sessions that they can support. For an orchestrator, this maximum session count refers to the maximum number of simultaneous jobs they can receive
+from broadcasters. For a transcoder, this maximum session count refers to the maximum number of simultaneous transcoding tasks they can receive from broadcasters.
+
