@@ -61,8 +61,8 @@ provide economic security to broadcasters.
 
 ## Video Miners
 
-***see*** [Roles and Responsibilities](/video-miners/)
+***See*** [Roles and Responsibilities](/video-miners/)
 
 ## Video Mining
 
-***see*** [About Video Mining](/video-miners/)
+***See*** [About Video Mining](/video-miners/)
