@@ -1,63 +1,20 @@
 ---
-title: Troubleshoot
+title: Troubleshooting an Orchestrator
 ---
 
-# Troubleshoot
+This page contains troubleshooting advice for video miners and lists some of the most common issues that a video miner might encounter.
 
-This page contains troubleshooting advice for video miners and lists some of the
-most common issues that a video miner might encounter.
+- Errors
+- Notifications and Warnings
+- Common Questions
 
-## OrchestratorCapped error
+## Errors
 
-This error means that your orchestrator has hit its session limit so it is not
-longer accepting work from broadcasters. See the
-[session limit guide](/video-miners/guides/session-limits) for
-information on setting the session limit.
+### Cannot Allocate Memory error
 
-## Cannot allocate memory error
+If this error occurs on startup when using the `-nvidia` flag, the transcoding test using the Nvidia GPUs likely failed because it hit the maximum number of video encoding/decoding sessions supported on a single GPU. Different Nvidia GPUs have different limits (if any) - more information can be found on [this page](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) and by searching for "nvenc nvdec session limit" online.
 
-If this error occurs on startup when using the `-nvidia` flag, the transcoding
-test using the Nvidia GPUs likely failed because it hit the maximum number of
-video encoding/decoding sessions supported on a single GPU. Different Nvidia
-GPUs have different limits (if any) - more information can be found on
-[this page](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new)
-and by searching for "nvenc nvdec session limit" online.
-
-## insufficient funds for gas \* price + value error
-
-This error means that the node attempted to submit a transaction, but its
-account did not have enough ETH available for the transaction. You should add
-more ETH to your account in order to submit the transaction.
-
-## Transcode loop timed out and Segment loop timed out logs
-
-These logs indicate that a session that was previously being used to transcode a
-stream was cleaned up because no segments were received for awhile. These are
-not errors and are expected to show up.
-
-## MB rate > Level limit warning
-
-This is a warning about the source video segment being transcoded (see this
-[page](https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels) for more
-technical details), but typically should not impact operation as long as
-transcoding completes.
-
-## Unable to transcode errors
-
-These errors occur when a source video segment with certain properties that
-prevent it from being transcoded. There are no actionable steps for an operator
-in this scenario since the broadcaster is responsible for sending video segments
-that are supported by the Livepeer network.
-
-## My node is still calling the reward claims function and spending gas, even though I have set `reward` to false
-
-Make sure to add `-reward=false` as an override in the launch command, even if using a `.conf` file. Also make sure that if you have Orchestrator and Transcoder processes running separately that all launch commands have `reward` set to false. To be safe, you can also remove the `ethUrl` option from the Transcoder process(es) to ensure that they are not performing any onchain actions on behalf of your orchestrator if using the same wallet.
-
-## TicketParams expired
-
-This error indicates that the broadcaster sent a payment ticket with too old parameters. This may be caused by the broadcaster's delay (between getting the last orchestrator info message and sending the segment) or by the delay in polling chain blocks (the expiration time is measured in L1 blocks). For more details please check [TicketParams expiration time](https://github.com/livepeer/go-livepeer/issues/1343). There are no actionable steps for an operator, broadcaster will retry a request with the updated ticket parameters.
-
-## Error creating Ethereum account manager
+### Error Creating Ethereum Account Manager
 
 This error means that Livepeer was not able to fetch your ETH account (or create a new one). Livepeer stores ETH accounts in the `<datadir>/keystore/` directory (by deafult `~/.lpData/<network>/keystore/`).
 
@@ -65,9 +22,50 @@ Please make sure that one of the files in that directory contains the account yo
 
 Please also make sure that your `keystore` directory has correct file permissions.
 
-## Unsupported input pixel format
+### Price + Value error \* Insufficient Funds for Gas 
+
+This error means that the node attempted to submit a transaction, but its
+account did not have enough ETH available for the transaction. You should add more ETH to your account in order to submit the transaction.
+
+### OrchestratorCapped error
+
+This error means that your orchestrator has hit its session limit so it is not longer accepting work from broadcasters. See the [session limit guide](/video-miners/guides/session-limits) for
+information on setting the session limit.
+
+### TicketParams Expired error
+
+This error indicates that the broadcaster sent a payment ticket with too old parameters. This may be caused by the broadcaster's delay (between getting the last orchestrator info message and sending the segment) or by the delay in polling chain blocks (the expiration time is measured in L1 blocks). For more details please check [TicketParams expiration time](https://github.com/livepeer/go-livepeer/issues/1343). There are no actionable steps for an operator, broadcaster will retry a request with the updated ticket parameters.
+
+### Unable to Transcode errors
+
+These errors occur when a source video segment with certain properties that
+prevent it from being transcoded. There are no actionable steps for an operator in this scenario since the broadcaster is responsible for sending video segments that are supported by the Livepeer network.
+
+### Unsupported Input Pixel Format error
 
 This error occurs when someone submits a stream with an unsupported pixel format. There are no actionable steps, the video of this format cannot be transcoded in Livepeer.
+
+
+## Notifications
+
+### Transcode loop timed out and Segment loop timed out logs
+
+These logs indicate that a session that was previously being used to transcode a stream was cleaned up because no segments were received for awhile. These are not errors and are expected to show up.
+
+### MB rate > Level Limit warning
+
+This is a warning about the source video segment being transcoded (see this
+[page](https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels) for more
+technical details), but typically should not impact operation as long as
+transcoding completes.
+
+
+### Node Continues Calling the Reward Claims Function error
+
+My node continues calling the Rewrd Claims Function and spending gas, even though I have set `reward` to false
+
+Make sure to add `-reward=false` as an override in the launch command, even if using a `.conf` file. Also make sure that if you have Orchestrator and Transcoder processes running separately that all launch commands have `reward` set to false. To be safe, you can also remove the `ethUrl` option from the Transcoder process(es) to ensure that they are not performing any onchain actions on behalf of your orchestrator if using the same wallet.
+
 
 ## Common Questions
 
