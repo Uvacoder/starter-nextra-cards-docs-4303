@@ -1,4 +1,5 @@
 ## - https://github.com/livepeer/docs
+- https://docs.livepeer.org
 
 <p align="center">
   <picture>
