@@ -30,4 +30,4 @@ If you're interested in contributing, please read the [contributing docs](/.gith
 
 ## License
 
-[MIT](/LICENSE) License
+
