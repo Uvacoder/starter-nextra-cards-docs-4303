@@ -3,10 +3,10 @@
  */
 import { useRouter } from 'next/router';
 
-const github = 'https://github.com/uvacoder/docs-nextra-livepeer';
+const github = 'https://github.com/uvacoder/starter-nextra-cards-docs-4303';
 
 const TITLE_WITH_TRANSLATIONS = {
-  'en-US': 'Livepeer Documentation',
+  'en-US': 'Nextra Cards',
 } as const;
 
 const EDIT_LINK_WITH_TRANSLATIONS = {
@@ -72,7 +72,7 @@ const Logo = ({ height, width }: { height: number; width: number }) => {
           fill={theme === 'light' ? '#131418' : 'white'}
         />
       </svg>
-      <span style={{ fontWeight: 'bold', fontSize: 18 }}>Livepeer Docs</span>
+      <span style={{ fontWeight: 'bold', fontSize: 18 }}>Nextra Cards Docs</span>
     </div>
   );
 };
@@ -86,7 +86,7 @@ const config: DocsThemeConfig = {
     key: 'docs-launch',
     text: (
       <div className="flex justify-center items-center gap-2">
-        Welcome to the new, unified Livepeer documentation! 👋
+        This site is so frustrating 👋
       </div>
     ),
   },
@@ -117,7 +117,7 @@ const config: DocsThemeConfig = {
   },
   useNextSeoProps() {
     return {
-      titleTemplate: `%s - Livepeer Documentation`,
+      titleTemplate: `%s - Nextra Cards Documentation`,
     };
   },
   head() {
@@ -125,14 +125,14 @@ const config: DocsThemeConfig = {
     const config = useConfig();
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { theme } = useTheme();
-    const title = config?.frontMatter?.title || 'Build with Livepeer';
+    const title = config?.frontMatter?.title || 'Build with Cards';
     const description =
       config?.frontMatter?.description ||
       'Explore guides and a variety of resources to help you get started adding live and on demand video experiences to your application using the open and decentralized Livepeer Protocol.';
     const image = config?.frontMatter?.image || '/og.jpg';
     const folder = theme === 'light' ? '/light' : '/dark';
 
-    const composedTitle = `${title} – Livepeer Documentation`;
+    const composedTitle = `${title} – Nextra Cards Documentation`;
 
     return (
       <>
@@ -180,7 +180,7 @@ const config: DocsThemeConfig = {
         <meta property="og:type" content="website" />
         <meta
           name="apple-mobile-web-app-title"
-          content="Livepeer Documentation"
+          content="Nextra Cards Documentation"
         />
         <script
           async
