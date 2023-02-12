@@ -3,7 +3,7 @@
  */
 import { useRouter } from 'next/router';
 
-const github = 'https://github.com/livepeer/docs';
+const github = 'https://github.com/uvacoder/docs-nextra-livepeer';
 
 const TITLE_WITH_TRANSLATIONS = {
   'en-US': 'Livepeer Documentation',
