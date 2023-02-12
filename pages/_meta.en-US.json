@@ -8,12 +8,12 @@
     "type": "page",
     "display": "hidden"
   },
-  "blogroll": {
-    "title": "Blogroll",
+  "guides": {
+    "title": "Guides",
     "type": "page"
   },
-  "tools": {
-    "title": "Tools",
+  "reference": {
+    "title": "Reference",
     "type": "page"
   },
   "frameworks": {
