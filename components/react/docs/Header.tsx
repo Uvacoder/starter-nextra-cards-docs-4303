@@ -1,5 +1,6 @@
-import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+
 
 const TITLE_WITH_TRANSLATIONS: Record<string, string> = {
   'en-US': 'livepeer.js',
