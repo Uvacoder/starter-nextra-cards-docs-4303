@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 const TITLE_WITH_TRANSLATIONS: Record<string, string> = {
   'en-US': 'livepeer.js',
@@ -19,7 +20,7 @@ export function Header() {
           href="https://www.npmjs.com/package/livepeer"
           className="h-5"
         >
-          <img
+          <Image
             alt=""
             src="https://img.shields.io/npm/v/livepeer?colorA=2B323B&colorB=1e2329&style=flat&label=Version"
           />
@@ -30,7 +31,7 @@ export function Header() {
           href="https://www.npmjs.com/package/livepeer"
           className="h-5"
         >
-          <img
+          <Image
             alt=""
             src="https://img.shields.io/github/license/livepeer/livepeer.js?colorA=2B323B&colorB=1e2329&style=flat&label=License"
           />
@@ -41,7 +42,7 @@ export function Header() {
           href="https://www.npmjs.com/package/livepeer"
           className="h-5"
         >
-          <img
+          <Image
             alt=""
             src="https://img.shields.io/npm/dm/livepeer?colorA=2B323B&colorB=1e2329&style=flat&label=Downloads"
           />
@@ -52,7 +53,7 @@ export function Header() {
           href="https://github.com/livepeer/livepeer.js"
           className="h-5"
         >
-          <img
+          <Image
             alt=""
             src="https://img.shields.io/github/stars/livepeer/livepeer.js?colorA=2B323B&colorB=1e2329&style=flat&label=Stars"
           />
