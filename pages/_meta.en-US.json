@@ -8,15 +8,15 @@
     "type": "page",
     "display": "hidden"
   },
-  "guides": {
-    "title": "Guides",
+  "blogroll": {
+    "title": "Blogroll",
     "type": "page"
   },
-  "reference": {
-    "title": "Reference",
+  "tools": {
+    "title": "Tools",
     "type": "page"
   },
-  "API & SDKs": {
+  "frameworks": {
     "title": "API & SDKs",
     "type": "menu",
     "items": {
